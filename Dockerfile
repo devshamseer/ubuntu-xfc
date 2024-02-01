@@ -14,10 +14,8 @@ EXPOSE 3000 3000
 # Set the working directory
 WORKDIR /config
 
-# Disable the "no new privileges" flag
-RUN echo "kernel.unprivileged_userns_clone=1" > /etc/sysctl.conf
-# Override the "no new privileges" setting
-USER root
+
+
 
 # Optional: Uncomment the following lines if you need additional configurations
 # COPY /path/to/configurations /config/configurations
@@ -28,4 +26,5 @@ USER root
 # Set the restart policy
 CMD ["--restart", "unless-stopped"]
 
-
+# Override the "no new privileges" setting
+USER root
