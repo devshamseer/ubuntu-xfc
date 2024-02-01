@@ -1,4 +1,4 @@
-docker run -d \
+
   --name=webtop \
   --security-opt seccomp=unconfined `#optional` \
   -e PUID=1000 \
