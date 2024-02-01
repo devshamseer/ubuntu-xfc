@@ -15,7 +15,7 @@ EXPOSE 3000 3001
 WORKDIR /config
 
 # Copy local data to container
-COPY /path/to/data /config
+COPY /home/user/data /config
 
 # Optional: Copy other necessary files if needed
 
