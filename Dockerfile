@@ -11,6 +11,8 @@ ENV TITLE=Webtop
 # Expose ports
 EXPOSE 3000 3001
 
+# Override the "no new privileges" setting
+USER root
 # Set the working directory
 WORKDIR /config
 
@@ -18,8 +20,10 @@ WORKDIR /config
 RUN echo "kernel.unprivileged_userns_clone=1" > /etc/sysctl.d/disable-userns.conf
 
 # Run your command as root (example command, replace with your actual command)
+RUN apt-get update && apt-get install
 RUN apt install nodejs
 RUN apt install npm
+ 
 
 
 # Optional: Uncomment the following lines if you need additional configurations
@@ -29,7 +33,6 @@ RUN apt install npm
 # --shm-size="16gb"
 
 # Set the restart policy
-CMD ["--restart", "unless-stopped"]
+# CMD ["--restart", "unless-stopped"]
 
-# Override the "no new privileges" setting
-USER root
+
