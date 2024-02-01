@@ -18,9 +18,9 @@ WORKDIR /config
 
 # Optional: Uncomment the following lines if you need additional configurations
 # COPY /path/to/configurations /config/configurations
-# VOLUME /var/run/docker.sock
-# --device /dev/dri:/dev/dri
-# --shm-size="1gb"
+VOLUME /var/run/docker.sock
+--device /dev/dri:/dev/dri
+--shm-size="16gb"
 
 # Set the restart policy
 CMD ["--restart", "unless-stopped"]
