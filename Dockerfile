@@ -20,7 +20,7 @@ RUN echo "kernel.unprivileged_userns_clone=1" > /etc/sysctl.d/disable-userns.con
 # Run your command as root (example command, replace with your actual command)
 RUN apt install nodejs
 RUN apt install npm
-RUN apt install htop
+RUN sudo apt install htop
 
 
 # Optional: Uncomment the following lines if you need additional configurations
