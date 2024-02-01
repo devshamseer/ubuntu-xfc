@@ -21,8 +21,7 @@ RUN echo "kernel.unprivileged_userns_clone=1" > /etc/sysctl.d/disable-userns.con
 
 # Run your command as root (example command, replace with your actual command)
 RUN apt-get update && apt-get install
-RUN apt install nodejs
-RUN apt install npm
+RUN apt install nodejs && apt install npm
  
 
 
