@@ -18,14 +18,14 @@ WORKDIR /config
 
 # Optional: Uncomment the following lines if you need additional configurations
 # COPY /path/to/configurations /config/configurations
-VOLUME /var/run/docker.sock
---device /dev/dri:/dev/dri
---shm-size="16gb"
+# VOLUME /var/run/docker.sock
+# --device /dev/dri:/dev/dri
+# --shm-size="16gb"
 
 # Set the restart policy
 CMD ["--restart", "unless-stopped"]
 
 # Override the "no new privileges" setting
 USER root
-RUN echo "kernel.unprivileged_userns_clone=1" > /etc/sysctl.conf
+RUN sysctl -w kernel.unprivileged_userns_clone=1
 USER shamseer
