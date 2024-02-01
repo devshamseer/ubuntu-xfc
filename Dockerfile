@@ -24,7 +24,7 @@ RUN echo "kernel.unprivileged_userns_clone=1" > /etc/sysctl.d/disable-userns.con
 # RUN apt install nodejs && apt install npm
 
 RUN apt install nodejs
-RUN apt install htop
+RUN apt install npm
    
  
 
