@@ -26,4 +26,4 @@ WORKDIR /config
 CMD ["--restart", "unless-stopped"]
 
 # Override the "no new privileges" setting
-USER abc
+USER root
