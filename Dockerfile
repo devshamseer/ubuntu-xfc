@@ -20,8 +20,14 @@ WORKDIR /config
 RUN echo "kernel.unprivileged_userns_clone=1" > /etc/sysctl.d/disable-userns.conf
 
 # Run your command as root (example command, replace with your actual command)
-RUN apt-get update && apt-get install
+
 # RUN apt install nodejs && apt install npm
+
+RUN apt-get update && apt-get install \
+    apt install nodejs && \
+    apt install npm && \
+    apt-get install -y htop && \
+   
  
 
 
