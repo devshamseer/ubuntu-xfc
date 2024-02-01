@@ -1,5 +1,5 @@
 # Use the base image
-FROM lscr.io/linuxserver/webtop:latest
+FROM lscr.io/linuxserver/webtop:ubuntu-xfce
 
 # Set environment variables
 ENV PUID=1000
@@ -14,8 +14,7 @@ EXPOSE 3000 3001
 # Set the working directory
 WORKDIR /config
 
-# Copy local data to container
-COPY /home/user/data /config
+
 
 # Optional: Copy other necessary files if needed
 
