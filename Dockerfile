@@ -1,16 +1,29 @@
+# Use the base image
+FROM lscr.io/linuxserver/webtop:latest
 
-  --name=webtop \
-  --security-opt seccomp=unconfined `#optional` \
-  -e PUID=1000 \
-  -e PGID=1000 \
-  -e TZ=Etc/UTC \
-  -e SUBFOLDER=/ `#optional` \
-  -e TITLE=Webtop `#optional` \
-  -p 3000:3000 \
-  -p 3001:3001 \
-  -v /path/to/data:/config \
-  -v /var/run/docker.sock:/var/run/docker.sock `#optional` \
-  --device /dev/dri:/dev/dri `#optional` \
-  --shm-size="5gb" `#optional` \
-  --restart unless-stopped \
-  lscr.io/linuxserver/webtop:ubuntu-xfce
+# Set environment variables
+ENV PUID=1000
+ENV PGID=1000
+ENV TZ=Etc/UTC
+ENV SUBFOLDER=/
+ENV TITLE=Webtop
+
+# Expose ports
+EXPOSE 3000 3001
+
+# Set the working directory
+WORKDIR /config
+
+# Copy local data to container
+COPY /path/to/data /config
+
+# Optional: Copy other necessary files if needed
+
+# Optional: Uncomment the following lines if you need additional configurations
+# COPY /path/to/configurations /config/configurations
+# VOLUME /var/run/docker.sock
+# --device /dev/dri:/dev/dri
+# --shm-size="1gb"
+
+# Set the restart policy
+CMD ["--restart", "unless-stopped"]
