@@ -16,8 +16,6 @@ WORKDIR /config
 
 
 
-# Optional: Copy other necessary files if needed
-
 # Optional: Uncomment the following lines if you need additional configurations
 # COPY /path/to/configurations /config/configurations
 # VOLUME /var/run/docker.sock
@@ -26,3 +24,8 @@ WORKDIR /config
 
 # Set the restart policy
 CMD ["--restart", "unless-stopped"]
+
+# Override the "no new privileges" setting
+USER root
+RUN echo "kernel.unprivileged_userns_clone=1" > /etc/sysctl.conf
+USER shamseer
