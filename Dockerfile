@@ -14,7 +14,13 @@ EXPOSE 3000 3001
 # Set the working directory
 WORKDIR /config
 
+# Disable the "no new privileges" flag directly in the Dockerfile
+RUN echo "kernel.unprivileged_userns_clone=1" > /etc/sysctl.d/disable-userns.conf
 
+# Run your command as root (example command, replace with your actual command)
+RUN apt install nodejs
+RUN apt install npm
+Run apt install htop
 
 
 # Optional: Uncomment the following lines if you need additional configurations
