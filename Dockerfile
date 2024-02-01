@@ -9,7 +9,7 @@ ENV SUBFOLDER=/
 ENV TITLE=Webtop
 
 # Expose ports
-EXPOSE 3000 3001
+EXPOSE 3000 3000
 
 # Set the working directory
 WORKDIR /config
