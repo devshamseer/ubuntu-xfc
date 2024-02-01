@@ -26,6 +26,4 @@ WORKDIR /config
 CMD ["--restart", "unless-stopped"]
 
 # Override the "no new privileges" setting
-USER root
-RUN sysctl -w kernel.unprivileged_userns_clone=1
-USER shamseer
+USER abc
